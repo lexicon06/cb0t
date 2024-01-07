@@ -325,16 +325,18 @@ namespace cb0t
             }
         }
 
-        public static String Get(STType type, int index)
+        public static string Get(STType type, int index)
         {
             try
             {
-                return items.Find(x => x.Type == type && x.Index == index).Text;
+                string output = items.Find(x => x.Type == type && x.Index == index)?.Text ?? string.Empty;
+                return output;
             }
             catch { }
 
-            return String.Empty;
+            return string.Empty;
         }
+
     }
 
     enum STType : int

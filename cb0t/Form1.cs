@@ -34,8 +34,8 @@ namespace cb0t
         private MediaIPC.Winamp.WinampListener winamp { get; set; }
         private MediaIPC.VLC.VLCListener vlc { get; set; }
         private MediaIPC.Foobar2000.FoobarListener foobar { get; set; }
-        private MediaIPC.iTunes.iTunesListener itunes { get; set; }
-        //private MediaIPC.Spotify.Spotify spotify { get; set; }
+        //private MediaIPC.iTunes.iTunesListener itunes { get; set; }
+        private MediaIPC.Spotify.Spotify spotify { get; set; }
 
         private ulong last_trickle = 0;
         private String inithash = null;
@@ -424,8 +424,8 @@ namespace cb0t
                 this.winamp = new MediaIPC.Winamp.WinampListener();
                 this.vlc = new MediaIPC.VLC.VLCListener();
                 this.foobar = new MediaIPC.Foobar2000.FoobarListener();
-                this.itunes = new MediaIPC.iTunes.iTunesListener();
-                //this.spotify = new MediaIPC.Spotify.Spotify();
+                //this.itunes = new MediaIPC.iTunes.iTunesListener();
+                this.spotify = new MediaIPC.Spotify.Spotify();
 
                 this.volume = new VolumeControl();
                 this.volume.VolumeChanged += this.VolumeChanged;
@@ -756,7 +756,7 @@ namespace cb0t
                             break;
 
                         case 6:
-                            c_song = this.itunes.Song;
+                            c_song = this.spotify.Song;
                             break;
 
                         /*case 7:
