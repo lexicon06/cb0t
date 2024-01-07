@@ -8,6 +8,7 @@ A chat client written in C# which connects to the Ares Network
 - hollow87
 - silverx69
 - stuart2
+- lexicon06
 
 ## License
 
