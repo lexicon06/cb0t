@@ -9,19 +9,19 @@ namespace MediaIPC.Spotify
         {
             get
             {
-                Process[] ps = Process.GetProcessesByName("spotify");
+                Process[] ps = Process.GetProcessesByName("Spotify");
 
-                if (ps.Length > 0)
+                foreach (Process p in ps)
                 {
-                    String str = ps[0].MainWindowTitle;
-                    
-                    if (str.ToUpper().Contains("SPOTIFY")) //Adverts ....
-                        return String.Empty;
-                    
-                    return str;
+                    if (!p.MainWindowTitle.Equals("") && p.MainWindowTitle.Contains("-"))
+                    {
+                        // string fullSong = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(p.MainWindowTitle);
+                        string fullSong = p.MainWindowTitle;
+                        return fullSong;
+                    }
                 }
 
-                return String.Empty;
+                return string.Empty;
             }
         }
     }
